@@ -5,7 +5,9 @@ const CACHE = "cacheV1";
 let urlsToCache = [
     "/",
     "/index.html",
-    "/images"
+    "/images",
+    "/css/style.css",
+    "/js/main.js"
 ];
 
 // Cache all the selected items once application is installed.

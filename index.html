@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="images/hello-icon-152.png">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="white"/>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -15,10 +18,106 @@
   <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
   <meta name="msapplication-TileColor" content="#FFFFFF">
 </head>
-<body class="fullscreen">
-  <div class="container">
-    <h1 class="title">Hello World!</h1>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" onclick="showSideBar('sidebar')"><span class="navbar-toggler-icon"></span></a>
+      <a class="navbar-brand" href="#"> <img src="images/64.png"> </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form class="form-inline ml-auto">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Register</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div id="sidebar" class="col-md-3">
+        <nav class="sidebar">
+          <ul class="nav flex-column">
+            <!-- Sección Explore -->
+            <li class="nav-item">
+              <h5>Explore</h5>
+              <a class="nav-link" href="#">Enlace de ejemplo 1</a>
+              <a class="nav-link" href="#">Enlace de ejemplo 2</a>
+              <a class="nav-link" href="#">Enlace de ejemplo 3</a>
+            </li>
+
+            <!-- Sección Me -->
+            <li class="nav-item">
+              <h5>Me</h5>
+              <a class="nav-link" href="#">Enlace de ejemplo 4</a>
+              <a class="nav-link" href="#">Enlace de ejemplo 5</a>
+              <a class="nav-link" href="#">Enlace de ejemplo 6</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="col-md-9">
+        <div class="row">
+          <!-- Publicación 1 -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Título de la publicación 1</h5>
+                <p class="card-text">Contenido de la publicación 1</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicación 2 -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Título de la publicación 2</h5>
+                <p class="card-text">Contenido de la publicación 2</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publicación 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Título de la publicación 3</h5>
+                <p class="card-text">Contenido de la publicación 3</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Agrega más bloques de publicaciones según sea necesario -->
+
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    function showSideBar(id) {
+      const sidebar = document.getElementById(id);
+      if (sidebar.style.display !== "none") {
+        sidebar.style.display = "none";
+      } else {
+        sidebar.style.display = "";
+      }
+    }
+  </script>
 </body>
 </html>
+
+

@@ -11,3 +11,13 @@ body {
     padding: 0;
     width: 100%;
   }
+
+/* Center the content in the browser window */
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+}

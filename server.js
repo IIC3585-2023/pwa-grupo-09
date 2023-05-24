@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 3000; // El número de puerto en el que se ejecutará el servidor
+const port = 3000;
 
 // Configurar el middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, "public")));

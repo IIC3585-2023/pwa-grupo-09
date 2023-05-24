@@ -4,7 +4,7 @@ const getCards = async () => {
       image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
       title: 'Title 1',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.',
     },
     {
       image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
@@ -25,7 +25,8 @@ const getCards = async () => {
         'Etiam finibus risus a felis condimentum, ac dictum dui lacinia. Phasellus id felis a purus fringilla molestie.',
     },
   ];
-  // const response = await fetch('localhost:3000/posts');
+  // const response = await fetch('http://localhost:3000/posts');
+  // console.log(response);
   // const boxes = await response.json();
 
   // Generate boxes dynamically
@@ -68,7 +69,27 @@ const getCards = async () => {
     col.appendChild(boxElement);
 
     boxRow.appendChild(col);
+
+    // Add click event listener to each box
+    boxElement.addEventListener('click', function () {
+      openModal(i, boxes);
+    });
   }
 };
+
+// Open modal with full content
+function openModal(index, boxes) {
+  const modalTitle = document.getElementById('boxModalLabel');
+  const modalImage = document.getElementById('boxModalImage');
+  const modalContent = document.getElementById('boxModalContent');
+
+  modalTitle.textContent = boxes[index].title;
+  modalImage.src = boxes[index].image;
+  modalImage.alt = 'Image ' + (index + 1);
+  modalContent.textContent = boxes[index].content;
+
+  const boxModal = new bootstrap.Modal(document.getElementById('boxModal'));
+  boxModal.show();
+}
 
 getCards();

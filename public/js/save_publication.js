@@ -8,7 +8,17 @@ const save = () => {
     console.log(content);
     console.log(imageURL);
 
-    // Call the save function and pass the title, content
+    fetch('http://localhost:3000/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: title,
+        content: content,
+        image: imageURL,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   });
 };
 

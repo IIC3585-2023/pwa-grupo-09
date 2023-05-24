@@ -1,38 +1,30 @@
 const getCards = async() => {
     /* const boxes = [{
-                            img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
-                            title: "Title 1",
-                            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.",
-                        },
-                        {
-                            img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
-                            title: "Title 2",
-                            body: "Nulla nec tincidunt quam. In feugiat diam eget lobortis facilisis. Suspendisse bibendum malesuada felis vitae consequat.",
-                        },
-                        {
-                            img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
-                            title: "Title 3",
-                            body: "Sed fermentum tellus vel quam posuere, nec interdum neque consectetur. Maecenas sed mattis lectus, eu iaculis leo.",
-                        },
-                        {
-                            img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
-                            title: "Title 4",
-                            body: "Etiam finibus risus a felis condimentum, ac dictum dui lacinia. Phasellus id felis a purus fringilla molestie.",
-                        },
-                    ]; */
+                                                img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
+                                                title: "Title 1",
+                                                body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.",
+                                            },
+                                            {
+                                                img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
+                                                title: "Title 2",
+                                                body: "Nulla nec tincidunt quam. In feugiat diam eget lobortis facilisis. Suspendisse bibendum malesuada felis vitae consequat.",
+                                            },
+                                            {
+                                                img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
+                                                title: "Title 3",
+                                                body: "Sed fermentum tellus vel quam posuere, nec interdum neque consectetur. Maecenas sed mattis lectus, eu iaculis leo.",
+                                            },
+                                            {
+                                                img_url: "https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg",
+                                                title: "Title 4",
+                                                body: "Etiam finibus risus a felis condimentum, ac dictum dui lacinia. Phasellus id felis a purus fringilla molestie.",
+                                            },
+                                        ]; */
+
     let boxes;
-    try {
-        const response = await fetch("http://localhost:3000/posts");
-        boxes = await response.json();
-        // Handle the response data
-    } catch (error) {
-        console.error(error);
-        const cachedResponse = await caches.match("http://localhost:3000/posts");
-        if (cachedResponse) {
-            const cachedData = await cachedResponse.json();
-            boxes = await cachedData.json();
-        }
-    }
+
+    const response = await fetch("http://localhost:3000/posts");
+    boxes = await response.json();
 
     // Generate boxes dynamically
     const boxRow = document.getElementById("boxRow");

@@ -47,10 +47,10 @@
         </nav>
     </header>
 
-    <!-- Offline Banner -->
+    <!-- Banner desconexion -->
     <div class="container">
         <div id="offline-banner" class="alert alert-secondary text-center" style="display: none;">
-            You are currently offline. Some features may not be available.
+            Ups! Parece que no hay conexión. Algunas funciiones no estarán disponibles.
         </div>
     </div>
 
@@ -68,7 +68,7 @@
         // Initial check on page load
         checkOfflineStatus();
 
-        // Listen for online/offline events
+        // online-offline
         window.addEventListener('online', checkOfflineStatus);
         window.addEventListener('offline', checkOfflineStatus);
     </script>

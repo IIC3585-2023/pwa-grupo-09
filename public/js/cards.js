@@ -1,5 +1,4 @@
-const getCards = () => {
-  // Box data (example)
+const getCards = async () => {
   const boxes = [
     {
       image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
@@ -26,6 +25,8 @@ const getCards = () => {
         'Etiam finibus risus a felis condimentum, ac dictum dui lacinia. Phasellus id felis a purus fringilla molestie.',
     },
   ];
+  // const response = await fetch('localhost:3000/posts');
+  // const boxes = await response.json();
 
   // Generate boxes dynamically
   const boxRow = document.getElementById('boxRow');

@@ -34,7 +34,6 @@ const getPostById = (request, response) => {
     });
 };
 
-//change
 const createPost = (request, response) => {
     const { title, body, img_url } = request.body;
 
@@ -47,13 +46,12 @@ const createPost = (request, response) => {
             response.status(201).send(`Post added with ID: ${results.insertId}`);
         }
     );
-
     setTimeout(() => {
         sendPushNotification({
             title: "Tu Publicación fue creada exitosamente!",
             body: "Eres todo un escritor! Wow!",
         });
-    }, 3000);
+    }, 5000);
 };
 
 const updatePost = (request, response) => {

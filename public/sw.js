@@ -25,17 +25,6 @@ self.addEventListener("install", (event) => {
     );
 });
 
-// Whenever a resource is requested, return if its cached else fetch the resourcefrom server.
-/* self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request);
-    })
-  );
-}); */
 
 self.addEventListener("fetch", (event) => {
     if (event.request.method === "GET") {

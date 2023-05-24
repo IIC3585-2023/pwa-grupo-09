@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const db_post = require("./queriesPost");
 const db_token = require("./queriesToken");
 
-
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 
@@ -29,7 +28,7 @@ app.delete("/posts/:id", db_post.deletePost);
 app.get("/tokens", db_token.getTokens);
 app.post("/tokens/:token", db_token.createToken);
 
-// Iniciar el servidor
+// Start server
 
 app.listen(port, () => {
     console.log(`Servidor en ejecución en http://localhost:${port}`);

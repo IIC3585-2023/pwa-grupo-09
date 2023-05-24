@@ -9,14 +9,19 @@ const pool = new Pool({
     port: 5432,
 });
 const getPosts = (request, response) => {
-    sendPushNotification();
-
     pool.query("SELECT * FROM posts ORDER BY id ASC", (error, results) => {
         if (error) {
             throw error;
         }
         response.status(200).json(results.rows);
     });
+
+    setTimeout(() => {
+        sendPushNotification({
+            title: "Alguien consultó lost posts creados",
+            body: "Quizas leyeron tu texto?",
+        });
+    }, 1000);
 };
 
 const getPostById = (request, response) => {
@@ -34,7 +39,7 @@ const createPost = (request, response) => {
     const { title, body, img_url } = request.body;
 
     pool.query(
-        "INSERT INTO posts (title, body, img_url) VALUES ($1, $2)", [title, body, img_url],
+        "INSERT INTO posts (title, body, img_url) VALUES ($1, $2, $3)", [title, body, img_url],
         (error, results) => {
             if (error) {
                 throw error;
@@ -42,6 +47,13 @@ const createPost = (request, response) => {
             response.status(201).send(`Post added with ID: ${results.insertId}`);
         }
     );
+
+    setTimeout(() => {
+        sendPushNotification({
+            title: "Tu Publicación fue creada exitosamente!",
+            body: "Eres todo un escritor! Wow!",
+        });
+    }, 3000);
 };
 
 const updatePost = (request, response) => {
@@ -49,7 +61,7 @@ const updatePost = (request, response) => {
     const { title, body, img_url } = request.body;
 
     pool.query(
-        "UPDATE posts SET name = $1, password = $2 WHERE id = $3", [title, body, img_url, id],
+        "UPDATE posts SET title = $1, body = $2, img_url = $3 WHERE id = $4", [title, body, img_url, id],
         (error, results) => {
             if (error) {
                 throw error;

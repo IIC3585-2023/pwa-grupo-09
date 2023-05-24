@@ -4,17 +4,26 @@ const getCards = () => {
     {
       image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
       title: 'Title 1',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor urna euismod lectus maximus pellentesque.',
     },
     {
       image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
       title: 'Title 2',
-      content: 'Nullam auctor consectetur bibendum.',
+      content:
+        'Nulla nec tincidunt quam. In feugiat diam eget lobortis facilisis. Suspendisse bibendum malesuada felis vitae consequat.',
     },
     {
       image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
       title: 'Title 3',
-      content: 'Vestibulum ac est eget ex lacinia pharetra.',
+      content:
+        'Sed fermentum tellus vel quam posuere, nec interdum neque consectetur. Maecenas sed mattis lectus, eu iaculis leo.',
+    },
+    {
+      image: 'https://okdiario.com/img/2022/11/22/libros-4-635x358.jpg',
+      title: 'Title 4',
+      content:
+        'Etiam finibus risus a felis condimentum, ac dictum dui lacinia. Phasellus id felis a purus fringilla molestie.',
     },
   ];
 
@@ -43,7 +52,11 @@ const getCards = () => {
 
     const content = document.createElement('p');
     content.className = 'card-text';
-    content.textContent = box.content;
+    if (box.content.length > 100) {
+      content.textContent = box.content.substring(0, 90) + '...';
+    } else {
+      content.textContent = box.content;
+    }
 
     cardBody.appendChild(title);
     cardBody.appendChild(content);

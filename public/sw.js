@@ -5,7 +5,12 @@ const CACHE = 'cacheV1';
 let urlsToCache = [
   '/',
   '/index.html',
-  '/images',
+  '/images/32.png',
+  '/images/64.png',
+  '/images/128.png',
+  '/images/192.png',
+  '/images/256.png',
+  '/images/512.png',
   '/css/style.css',
   '/js/main.js',
 ];

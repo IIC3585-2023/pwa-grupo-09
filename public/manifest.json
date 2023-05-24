@@ -33,6 +33,8 @@
             "sizes": "512x512"
         }
     ],
+    "gcm_sender_id": "388679300373",
+    
     "lang": "en-US",
     "scope": "/",
     "start_url": "/index.html",

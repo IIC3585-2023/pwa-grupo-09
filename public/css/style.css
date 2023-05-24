@@ -1,16 +1,16 @@
 body {
     font-family: sans-serif;
-  }
+}
   
-  /* Make content area fill the entire browser window */
-  html,
-  .fullscreen {
-    display: flex;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
+/* Make content area fill the entire browser window */
+html,
+.fullscreen {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
 
 /* Center the content in the browser window */
 .container {
@@ -20,4 +20,9 @@ body {
 
 .title {
   font-size: 3rem;
+}
+
+.btn-lg.shadow {
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.8);
+  color: black;
 }

@@ -1,18 +1,35 @@
-const express = require('express');
-const path = require('path');
-
+const express = require("express");
 const app = express();
-const port = 3000; // El número de puerto en el que se ejecutará el servidor
+const port = 3000;
+const cors = require("cors");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
-// Configurar el middleware para servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+const db_post = require("./queriesPost");
+const db_token = require("./queriesToken");
 
-// Ruta de inicio
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+app.use(morgan("dev"));
+app.use(bodyParser.json());
 
-// Iniciar el servidor
+app.use(
+    cors({
+        origin: "http://localhost:8080",
+        methods: ["GET", "POST"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+    })
+);
+
+app.get("/posts", db_post.getPosts);
+app.get("/posts/:id", db_post.getPostById);
+app.post("/posts", db_post.createPost);
+app.put("/posts/:id", db_post.updatePost);
+app.delete("/posts/:id", db_post.deletePost);
+
+app.get("/tokens", db_token.getTokens);
+app.post("/tokens/:token", db_token.createToken);
+
+// Start server
+
 app.listen(port, () => {
-  console.log(`Servidor en ejecución en http://localhost:${port}`);
+    console.log(`Servidor en ejecución en http://localhost:${port}`);
 });
